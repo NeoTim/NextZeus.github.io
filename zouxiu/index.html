@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>走秀网</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<script src="js/jquery.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script>			
+			window.onload=function(){
+				//定rem 设标准
+				setRemSize();
+				window.addEventListener('resize',setRemSize,false);
+				function setRemSize(){
+					var _clientWidth=document.documentElement.clientWidth/6.4+'px';
+					document.documentElement.style.fontSize=_clientWidth;
+				}
+				
+				//ajax获取图片
+				$.ajax({
+					type:"get",
+					url:"http://datainfo.duapp.com/shopdata/getBanner.php",
+					async:true,					
+				    dataType:'jsonp',
+					success:callback
+				});
+				function callback(data){
+				  //console.log(data);
+					var str='';	
+					$('.swiper-wrapper').html('');
+					for(var i=0;i<data.length;i++){
+						var _img=JSON.parse(data[i].goodsBenUrl)[0];
+						str+='<div class="swiper-slide">'+
+						'<img class="swiper-img" src="'+_img+'"/>'+
+						'</div>';
+					}
+					$('.swiper-wrapper').append(str);
+					var myswiper=new Swiper('.swiper-content',{
+						autoplay:1200,
+						pagination:".swiper-pagination",
+						loop:true,
+					});					
+				}
+				
+				//ajax获取信息
+				$.ajax({
+					type:"get",
+					url:"http://datainfo.duapp.com/shopdata/getGoods.php",
+					async:true,
+					dataType:'jsonp',
+					success:function(data){
+						//console.log(data);
+						var str='';
+						$('.shoplist').html('');						
+						for(var i=0;i<data.length;i++){
+							var _img=data[i].goodsListImg;
+							var _name=data[i].goodsName;
+							var _price=data[i].price;
+							var _discount=data[i].discount;
+							
+							str+='<div class="shopitem">'+
+								'<div class="itemimg">'+
+									'<img src="'+_img+'"/>'+
+								'</div>'+
+								'<div class="imgdesc">'+
+									'<div class="goodsName">'+_name+'</div>'+
+									'<div class="goodsPrice">￥<span>'+_price+'</span></div>'+
+									'<div class="goodsCount">'+_discount+'折</div>'+
+								'</div>'+
+								'</div>';
+						}
+						$('.shoplist').append(str);
+					}
+				});
+				
+			}
+		</script>
+	</head>
+	<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body,html{
+				width: 100%;
+				height: 100%;
+				font-size: 100px;
+			}
+			.box{
+				width: 100%;
+				height: 100%;
+				
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+			}
+			
+			.header{
+				width: 100%;
+				height: 0.9rem;
+				overflow: hidden;
+				background-color: rgb(228,54,107);
+			}
+			.header>img{
+				width: 2.6rem;
+				height: 0.5rem;
+				margin: 0.2rem auto;
+				display: block;
+								
+			}			
+			.search{
+				width:100%;			
+				height: 0.88rem;
+				background-color: rgb(82,82,90);
+				overflow: hidden;
+			}
+			.search-box{
+				width: 5.9rem;
+				height: 0.56rem;
+				border-radius: 0.28rem;
+				margin: 0.2rem auto;
+				background: #fff;
+				overflow: hidden;			
+			}
+			.search-box>img{
+				display: block;
+				width: 0.5rem;
+				height: 0.48rem;
+				float: left;
+				margin-left: 0.16rem;
+				margin-top:0.09rem ;				
+			}
+			.search-box>input{
+				display: block;
+				width: 5rem;
+				height: 100%;
+				float: left;
+				font-size: 0.28rem;
+				border: none;
+				outline: none;
+			}
+			.swiper-content{
+				width:100%;
+				height:2.5rem;
+				position:relative;
+			}
+			.swiper-content img{
+				width:6.4rem;
+				height:2.5rem;
+				overflow: hidden;
+				display: block;
+			}
+			.swiper-pagination{
+				position:absolute;
+				left:3rem;
+				bottom:0.2rem;				
+			}
+			.shoplist{
+				width: 100%;
+				-webkit-flex: 1;
+				flex: 1;
+				overflow: auto;
+			}
+			.shopitem{
+				width:100% ;
+				height: 2.2rem;
+				border-bottom: 2px solid rgb(171,171,171);
+			}
+			.itemimg{
+				width:1.7rem ;
+				height: 1.7rem;
+				margin: 0.2rem 0.15rem 0rem ;
+				float: left;
+				overflow: hidden;
+			}
+			.itemimg>img{
+				display: block;
+				width:100% ;
+				height: 1.7rem;
+			}
+			.imgdesc{
+				width:3.85rem ;
+				height: 1.7rem;
+				margin-top: 0.2rem;
+				float: left;
+			}
+			.goodsName{
+				font-size: 0.24rem;
+				line-height: 0.35rem;
+			}
+			.goodsPrice{
+				font-size: 0.26rem;
+				color: red;
+				line-height: 0.5rem;
+				font-weight: bold;
+			}
+			.goodsCount{
+				font-size: 0.24rem;
+				line-height: 0.5rem;
+				font-weight: bold;
+			}
+			
+			.footer{
+				width:100%;
+				height: 0.98rem;
+				font-size: 0.22rem;
+				color: #fff;
+				font-weight: bold;
+				text-align: center;
+				background: rgb(72,72,80);
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: row;
+			}
+			.footer>div{
+				-webkit-flex: 1;
+				flex: 1;
+			}
+			.footer div img{
+				display: block;
+				width: 0.5rem;
+				height: 0.4rem;
+				margin: 0.1rem auto 0.1rem;
+			}
+			
+		</style>
+	<body>
+		<div class="box">
+			
+			<!--头部-->
+			<div class='header'>
+				<img src="img/header-img.gif"/>
+			</div>
+			
+			
+			<!--搜索-->
+			<div class='search'>
+				<div class="search-box">
+					<img src="img/search-img.gif"/>
+					<input type="text" placeholder="请输入商品名称"/>
+				</div>
+			</div>			
+			<!--轮播图-->
+			<div class="swiper-content">
+				<div class="swiper-wrapper">
+					
+				</div>
+				<div class="swiper-pagination">
+					
+				</div>
+			</div>
+			
+			<!--商品列表-->
+			<div class="shoplist">
+				
+				<!--渲染模块-->
+				<div class="shopitem">
+					<div class="itemimg">
+						<img src=""/>
+					</div>
+					<div class="imgdesc">
+						<div class="goodsName">名字</div>
+						<div class="goodsPrice">￥<span>100</span></div>
+						<div class="goodsCount">2</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<!--footer-->
+			<div class="footer">
+				<div><img src="img/images/1_03.png"/><span>首页</span></div>
+				<div><img src="img/images/2_03.png"/><span>分类</span></div>
+				<div><img src="img/images/3_03.png"/><span>购物车</span></div>
+				<div><img src="img/images/4_03.png"/><span>我的秀</span></div>
+				<div><img src="img/images/5_03.png"/><span>更多</span></div>
+			</div>
+		</div>
+		
+	</body>
+	
+</html>
+

@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+html body{
+	font-size: 12px;
+	width: 100%;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: red;
+}
+ul li{
+	list-style: none;
+}
+
+
+.login-main{
+	width:1020px ;
+	height:400px ;
+	margin: 20px auto 100px;
+}
+.login-main .div{
+	width:930px ;
+	height: 336px;
+	padding:30px 0 0 50px;
+}
+
+/*轮播图*/
+.login-main .div .div1{
+	width: 446px;
+	height: 325px;
+	float: left;
+}
+.banner a img{
+	width: 446px;
+	height: 325px;
+	box-shadow: 0 0 20px #333;
+}
+.banner { position: relative; overflow: hidden;}
+.banner li { list-style: none; }
+.banner ul li { float: left; font-size:0;}
+.banner ul li a{font-size: 0px;}
+
+
+
+
+
+.login-main .div .div2{
+	width: 404px;
+	height: 325px;
+	border: 2px solid #e8e8e8;
+	float: right;
+}
+.input_c{
+	width: 334px;
+	height: 33px;
+	border: 1px solid #ccc;
+	margin:15px 35px;
+}
+.input_b{
+	margin:15px  0 15px 35px;
+}
+.div2-span1{
+	margin-left:180px ;
+}
+.btn{
+	width:336px ;
+	height: 34px;
+	background: #e20004;
+	color: #fff;
+	text-align: center;
+	line-height:34px ;
+	border: none;
+	border-radius: 5px;
+	margin-left: 35px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bold;
+}
+.div2-span2{
+	margin-left: 300px; 
+}
+.div2 span a:hover{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

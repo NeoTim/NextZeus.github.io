@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>进度条</title>
+		<script src="js/jquery.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 300px;
+				height: 20px;
+				border: 1px solid #000;
+				border-radius: 2px;
+				margin: 50px auto;
+				overflow: hidden;
+				background: black;
+			}
+			@keyframes kf{
+				from{width: 0;}
+				to{width: 300px;}
+			}
+			.process{
+				width: 0px;
+				height: 20px;
+				border-radius: 2px;
+				background:#e49d37;
+				animation: kf 5s linear both;
+			}
+			.process span{
+				color: #fff;
+				font-size: 16px;
+				line-height: 20px;
+				padding-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="process"><span></span></div>
+		</div>
+		<script>
+			$(function(){
+				timer=setInterval(function(){
+				    nowWidth = parseInt($(".process").width());
+				    if(nowWidth<=300){
+				    	var a=parseInt(nowWidth/3);
+				    	//console.log(a);
+				    	$(".process").html('<span>'+a+'%</span>');
+				    }else{
+				    	clearInterval(timer);
+				    } 
+				},120);
+			})
+		</script>
+	</body>
+</html>

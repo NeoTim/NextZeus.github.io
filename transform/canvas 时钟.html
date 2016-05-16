@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canv" width="600" height="600"></canvas>
+		<input id="btn" type="button" value="点击存储" />
+		<img id="imgs" src="" />
+		<script>
+			var canv=document.getElementById('canv');
+			var context=canv.getContext('2d');
+			
+			function time(){
+				context.clearRect(0,0,600,600);
+				
+				context.beginPath();
+				context.arc(300,300,200,0,Math.PI*2,false);
+				context.strokeStyle='#F0400A';
+				context.lineWidth=20;
+				context.stroke();
+				context.closePath();
+				
+				//分针刻度
+				for(var i=0;i<60;i++){
+					context.save();				
+					context.beginPath();				
+					context.translate(300,300);
+					context.lineWidth=3;
+					context.strokeStyle='#666';
+					context.rotate(i*6*Math.PI/180);
+					context.moveTo(0,-177);
+					context.lineTo(0,-190);			
+					context.stroke();
+					context.closePath();
+					context.restore();
+				}
+				//时针刻度
+				for(var i=0;i<12;i++){
+					context.save();				
+					context.beginPath();				
+					context.translate(300,300);
+					context.lineWidth=6;
+					context.strokeStyle='#000';
+					context.rotate(i*30*Math.PI/180);
+					context.moveTo(0,-175);
+					context.lineTo(0,-190);			
+					context.stroke();
+					context.closePath();
+					context.restore();
+				}
+				var dat=new Date();
+				var h=dat.getHours();
+				var m=dat.getMinutes();
+				var s=dat.getSeconds();
+				//时针
+				context.save();
+				context.beginPath();
+				context.translate(300,300);
+				context.lineWidth=6;
+				context.strokeStyle='#000';
+				context.rotate((h*30*Math.PI/180)+m*Math.PI/360);
+				context.moveTo(0,10);
+				context.lineTo(0,-135);			
+				context.stroke();
+				context.closePath();
+				context.restore();
+				//分针
+				context.save();
+				context.beginPath();
+				context.translate(300,300);
+				context.lineWidth=4;
+				context.strokeStyle='deepskyblue';
+				context.rotate((m*6*Math.PI/180)+s*Math.PI/1800);
+				context.moveTo(0,15);
+				context.lineTo(0,-150);			
+				context.stroke();
+				context.closePath();
+				context.restore();
+				//秒针
+				context.save();
+				context.beginPath();
+				context.translate(300,300);
+				context.lineWidth=3;
+				context.strokeStyle='gold';
+				context.rotate(s*6*Math.PI/180);
+				context.moveTo(0,20);
+				context.lineTo(0,-165);			
+				context.stroke();
+				context.closePath();
+				context.restore();
+			}	
+			time();
+			setInterval(time,1000);
+			
+			var imgs=document.getElementById('imgs');
+			var btn=document.getElementById('btn');
+			var img=canv.toDataURL();//获取画布上所做的图
+			btn.onclick=function(){
+				imgs.src=img;
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

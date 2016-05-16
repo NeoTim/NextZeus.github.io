@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>transform运动</title>
+	</head>
+	
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			background: #000;
+		}
+		.box{			
+			width: 100px;
+			height: 200px;
+			margin:200px auto;
+			position: relative;
+			transition:2s;
+			transform-style: preserve-3d;
+			transform: rotateX(-20deg);
+		}
+		.box div{		
+			position: absolute;
+			width: 100px;
+			height: 200px;
+			left: 0px;
+			top: 0px;
+		}
+		
+	</style>
+	<body>
+		<div class="box">
+			<div style="background: red;transform:rotateY(0deg) translateZ(200px);"></div>
+			<div style="background: blue;transform: rotateY(40deg) translateZ(200px);"></div>
+			<div style="background: #f0f;transform: rotateY(80deg) translateZ(200px);"></div>
+			<div style="background: yellowgreen;transform:rotateY(120deg) translateZ(200px) ;"></div>
+			<div style="background: burlywood;transform:rotateY(160deg) translateZ(200px) ;"></div>
+			<div style="background: blueviolet;transform:rotateY(200deg) translateZ(200px) ;"></div>
+			<div style="background: yellowgreen;transform:rotateY(240deg) translateZ(200px) ;"></div>
+			<div style="background: burlywood;transform:rotateY(280deg) translateZ(200px) ;"></div>
+			<div style="background: blueviolet;transform:rotateY(320deg) translateZ(200px) ;"></div>
+		</div>
+		<button class="btn">Click</button>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+				var rotY=0;
+				var rotX=-10;
+				$('.btn').click(function(){
+					rotY+=40;
+					rotX+=-10;
+					$('.box').css('transform','rotateX('+rotX+'deg) rotateY('+rotY+'deg)');
+				});
+			})
+		
+		</script>
+	</body>
+</html>

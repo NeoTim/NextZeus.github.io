@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+html body{
+	font-size: 12px;
+	width: 100%;
+}
+a{
+	text-decoration: none;
+}
+
+
+
+.login-main-2 .login-main-ul .li-second{
+	background: #ddd;
+}
+.login-main-2 .login-main-ul .li-third{
+	background: #e00003;
+}

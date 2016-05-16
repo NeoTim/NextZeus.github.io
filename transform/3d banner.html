@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style id="styler">
+			*{margin: 0;padding: 0;}
+			ul li{list-style: none;}
+			.box{width: 800px;height: 360px;margin: 100px auto;perspective: 500px;perspective-origin: right;position: relative;}
+			.ban{width: 800px;height: 360px;position: absolute;left: 0;top: 0;transform: rotateZ(180deg);}
+			.ban li{width: 10px;height: 360px;transform-style: preserve-3d;float: left;transform: rotateX(90deg);transform-origin: center center -180px;}
+			.ban li a{width: 10px;height: 360px;position: absolute;}
+			.ban li a:nth-child(1){transform: rotateX(-180deg);}
+			.ban li a:nth-child(2){transform: rotateX(90deg);transform-origin:bottom ;}
+			.ban li a:nth-child(3){transform: rotateX(-90deg);transform-origin: top;}
+			.ban li a:nth-child(4){transform: translateZ(-360px);}
+			.nav{position: absolute;bottom: 10px;right: 20px;}
+			.nav li{width: 30px;height: 30px;border-radius: 50%;line-height: 30px;text-align: center;font-size: 24px;
+				background: #000;color: #fff;float: left;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="ban">
+				<li>
+					<a href=""></a>
+					<a href=""></a>
+					<a href=""></a>
+					<a href=""></a>
+				</li>
+			</ul>
+			<ul class="nav">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<script src="jquery.js"></script>
+		<script>
+			var num=80;
+			for(var i=0;i<num-1;i++){
+				$('.ban').append($('.ban').find('li:nth-child(1)').clone());
+			}
+			var navs=$('.nav').find('li');
+			for(var i=0;i<num;i++){
+				for(var j=0;j<navs.length;j++){
+					$('.ban').find('li').eq(i).find('a').eq(j).css('background','url(imgs/'+(j+1)+'.jpg) '+(-i*10)+'px 0');
+				}
+				
+			}
+			
+			for(var j=0;j<navs.length;j++){
+				navs[j].index=j;
+				$(navs[j]).click(function(){
+					for(var m=0;m<navs.length;m++){
+						$(navs[m]).css('background','black').css('color','white');
+					}
+					$(this).css('background','red').css('color','black');
+					for(var i=0;i<num;i++){
+						$($('.ban').find('li')[i]).css('transform','rotateX('+((this.index+1)*90)+'deg)')
+							.css('transition',800+i*100+"ms")
+					}
+				})
+			}
+			
+		</script>
+	</body>
+</html>

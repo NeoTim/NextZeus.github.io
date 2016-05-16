@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D下的transform视角</title>
+		
+	</head>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			background: #000;
+		}
+		img{
+			width:100px ;
+			height: 200px;
+		}
+		.box1{			
+			width: 100px;
+			height: 200px;
+			margin:0 auto;
+			margin-top: 200px;
+			transition:2s;
+			position: relative;			
+			transform-style: preserve-3d;
+			transform: rotateX(-20deg);
+		}
+		.box1 div{		
+			position: absolute;
+			width: 100px;
+			height: 200px;
+			left: 0px;
+			top:0px;
+		}		
+		.box2{			
+			width: 100px;
+			height: 200px;
+			margin:0 auto;
+			margin-top: -200px;
+			transition:2s;
+			position: relative;
+			transform-style: preserve-3d;
+			transform: rotateX(-170deg);
+		}
+		.box2 div{		
+			position: absolute;
+			width: 100px;
+			height: 200px;
+			left: 0px;
+			top: 0px;
+		}
+	</style>
+	<body>
+		<div class="box box1">
+			<div style="transform:rotateY(0deg) translateZ(300px);">
+				<img src="imgs/1.jpg" />
+			</div>
+			<div style="transform: rotateY(40deg) translateZ(300px);">
+				<img src="imgs/2.jpg" />
+			</div>
+			<div style="transform: rotateY(80deg) translateZ(300px);">
+				<img src="imgs/3.jpg" />
+			</div>
+			<div style="transform:rotateY(120deg) translateZ(300px) ;">
+				<img src="imgs/4.jpg" />
+			</div>
+			<div style="transform:rotateY(160deg) translateZ(300px) ;">
+				<img src="imgs/5.jpg" />
+			</div>
+			<div style="transform:rotateY(200deg) translateZ(300px) ;">
+				<img src="imgs/6.jpg" />
+			</div>
+			<div style="transform:rotateY(240deg) translateZ(300px) ;">
+				<img src="imgs/7.jpg" />
+			</div>
+			<div style="transform:rotateY(280deg) translateZ(300px) ;">
+				<img src="imgs/8.jpg" />
+			</div>
+			<div style="transform:rotateY(320deg) translateZ(300px) ;">
+				<img src="imgs/9.jpg" />
+			</div>
+		</div>
+		<div class="box box2">
+			<div style="transform:rotateY(0deg) translateZ(400px) ;">
+				<img src="imgs/1.jpg" />
+			</div>
+			<div style="transform:rotateY(40deg) translateZ(400px);">
+				<img src="imgs/2.jpg" />
+			</div>
+			<div style="transform: rotateY(80deg) translateZ(400px);">
+				<img src="imgs/3.jpg" />
+			</div>
+			<div style="transform: rotateY(120deg) translateZ(400px);">
+				<img src="imgs/4.jpg" />
+			</div>
+			<div style="transform:rotateY(160deg) translateZ(400px) ;">
+				<img src="imgs/5.jpg" />
+			</div>
+			<div style="transform:rotateY(200deg) translateZ(400px) ;">
+				<img src="imgs/6.jpg" />
+			</div>
+			<div style="transform:rotateY(240deg) translateZ(400px) ;">
+				<img src="imgs/7.jpg" />
+			</div>
+			<div style="transform:rotateY(280deg) translateZ(400px) ;">
+				<img src="imgs/8.jpg" />
+			</div>
+			<div style="transform:rotateY(320deg) translateZ(400px) ;">
+				<img src="imgs/9.jpg" />
+			</div>
+		</div>
+		<button class="btn">Click</button>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+				var rotY1=0;
+				var rotX1=-10;
+				var rotY2=0;
+				var rotX2=-10;
+				$('.btn').click(function(){
+					rotY1+=40;
+					rotX1+=-10;
+					rotY2+=20;
+					rotX2+=-20;
+					$('.box1').css('transform','rotateX('+rotX1+'deg) rotateY('+rotY1+'deg)');
+					$('.box2').css('transform','rotateX('+rotX2+'deg) rotateY('+rotY2+'deg)');
+				});
+			})
+		
+		</script>
+	</body>
+</html>
