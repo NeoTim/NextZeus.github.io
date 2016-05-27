@@ -23,6 +23,9 @@
     </script>
     <link href='//fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+    <link href="../../css/monokai_sublime.min.css" rel="stylesheet">
+    <script src="../../js/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body data-spy="scroll" data-target="#sidebar">
@@ -34,12 +37,10 @@
     </a>
 
     <div class="container">
-
         <a class="logo" href="/">
             <div class="logo-img"></div>
-            <span class='logo-type'>PouchDB</span>
+            <span class='logo-type'>Xiaodong Li</span>
         </a>
-
         <ul class='nav nav-header nav-pills' role="navigation">
             <li>
                 <a class='btn btn-link btn-lg' href="/blog/">Blog</a>
@@ -53,11 +54,7 @@
             <li>
                 <a class='btn btn-link btn-lg' href="/learn.html">Learn</a>
             </li>
-            <li>
-                <a class='btn btn-primary btn-lg' href="/download.html">Download <strong>v5.3.2</strong></a>
-            </li>
         </ul>
-
     </div>
 
 </header>
@@ -65,9 +62,7 @@
 <div class="page-head">
 
     <div class="container">
-
-        <h1 class="page-title">We have a problem with promises</h1>
-          
+        <h1 class="page-title">JavaScript this</h1>
             <span class="h1">
                 <a
                     data-toggle="tooltip"
@@ -78,11 +73,8 @@
                     target="_blank">
 
                 </a>
-
             </span>
-
     </div>
-
 </div>
 
 
@@ -109,58 +101,35 @@
 
                 <p>Fellow JavaScripters, it&#39;s time to admit it: we have a problem with promises.</p>
 
-                <p>No, not with promises themselves. Promises, as defined by the <a href="https://promisesaplus.com/">A+ spec</a>, are awesome.</p>
-
-                <p>The big problem, which has revealed itself to me over the course of the past year, as I&#39;ve watched numerous programmers struggle with the PouchDB API and other promise-heavy APIs, is this:</p>
-
-                <p>Many of us are using promises <em>without really understanding them</em>.</p>
-
-                <p>If you find that hard to believe, consider this puzzle <a href="https://twitter.com/nolanlawson/status/578948854411878400">I recently posted to Twitter</a>:</p>
-
                 <p><strong>Q: What is the difference between these four promises?</strong></p>
-                <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">doSomething</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="nx">doSomethingElse</span><span class="p">();</span>
-                    <span class="p">});</span>
+                <div class="highlight">
+                    <pre>
+                        <code class="language-js" data-lang="js">
+                            function identify(){
+                                return this.name.toUpperCase();
+                            }
 
-                    <span class="nx">doSomething</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                    <span class="nx">doSomethingElse</span><span class="p">();</span>
-                    <span class="p">});</span>
+                            function speak(){
+                                var greeting = "Hello , I`m " + identify.call(this);
+                                console.log(greeting);
+                            }
 
-                    <span class="nx">doSomething</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">doSomethingElse</span><span class="p">());</span>
+                            var me = {
+                                name    :   "Kyle"
+                            }
 
-                    <span class="nx">doSomething</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">doSomethingElse</span><span class="p">);</span>
-                </code></pre></div>
+                            var you = {
+                                name    :   "Reader"
+                            }
 
-                <p>Looking at how people use PouchDB, which has a largely promise-based API, I see a lot of poor promise patterns. The most common bad practice is this one:</p>
-                <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remotedb</span><span class="p">.</span><span class="nx">allDocs</span><span class="p">({</span>
-                    <span class="nx">include_docs</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                    <span class="nx">attachments</span><span class="o">:</span> <span class="kc">true</span>
-                    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="kd">var</span> <span class="nx">docs</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">rows</span><span class="p">;</span>
-                    <span class="nx">docs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">localdb</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">doc</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Pulled doc with id &quot;</span> <span class="o">+</span> <span class="nx">element</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">_id</span> <span class="o">+</span> <span class="s2">&quot; and added to local db.&quot;</span><span class="p">);</span>
-                    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">409</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">localdb</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">_id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">localdb</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">_id</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">_rev</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resp</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="c1">// et cetera...</span>
-                </code></pre></div>
-                <p>Yes, it turns out you can use promises as if they were callbacks, and yes, it&#39;s a lot like using a power sander to file your nails, but you can do it.</p>
+                            identify.call(me);
+                            identify.call(you);
 
-                <p>And if you think this sort of mistake is only limited to absolute beginners, you&#39;ll be surprised to learn that I actually took <a href="https://github.com/blackberry/BB10-WebWorks-Community-Samples/blob/d6ee75fe23a10d2d3a036013b6b1a0c07a542099/pdbtest/www/js/index.js">the above code</a> from <a href="http://devblog.blackberry.com/2015/05/connecting-to-couchbase-with-pouchdb/">the official BlackBerry developer blog</a>! Old callback habits die hard. (And to the developer: sorry to pick on you, but your example is instructive.)</p>
-
-                <p>A better style is this one:</p>
-                <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remotedb</span><span class="p">.</span><span class="nx">allDocs</span><span class="p">(...).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resultOfAllDocs</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="nx">localdb</span><span class="p">.</span><span class="nx">put</span><span class="p">(...);</span>
-                    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resultOfPut</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="nx">localdb</span><span class="p">.</span><span class="nx">get</span><span class="p">(...);</span>
-                    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resultOfGet</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">return</span> <span class="nx">localdb</span><span class="p">.</span><span class="nx">put</span><span class="p">(...);</span>
-                    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-                    <span class="p">});</span>
-                </code></pre></div>
+                            speak.call(me);
+                            speak.call(you);
+                        </code>
+                    </pre>
+                </div>
             </article>
         </div>
     </article>
