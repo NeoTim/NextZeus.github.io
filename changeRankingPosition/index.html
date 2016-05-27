@@ -23,8 +23,8 @@
     </script>
     <link href='//fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
-    <link href="../../css/monokai_sublime.min.css" rel="stylesheet">
-    <script src="../../js/highlight.min.js"></script>
+    <link href="../css/monokai_sublime.min.css" rel="stylesheet">
+    <script src="../js/highlight.min.js"></script>
     <script >hljs.initHighlightingOnLoad();</script>
 </head>
 
@@ -104,11 +104,7 @@
                 <p><strong>Q: What is the difference between these four promises?</strong></p>
                 <div class="highlight">
                     <pre>
-                        <code class="language-js" data-lang="js" style="width: 100%">
-                            /**
-                            * Created by lixiaodong on 16/5/25.
-                            */
-
+                        <code>
                             //分段存储排行榜数据
                             var _ = require('underscore');
 
@@ -140,9 +136,8 @@
                                 var sectionLoser = getSectionIndex(loser);
                                 console.log('sectionWinner-->>',sectionWinner);
                                 console.log('sectionLoser-->>',sectionLoser);
-
-                                if(sectionWinner < sectionLoser){ //winner 在排行榜比 loser 靠前 不需要替换位置
-                                    console.log('winner 在排行榜比 loser 靠前 不需要替换位置');
+                                //winner 在排行榜比 loser 靠前 不需要替换位置
+                                if(sectionWinner < sectionLoser){
                                     return;
                                 }
 
@@ -165,14 +160,14 @@
                                 //todo 还是只刷玩过pvp的玩家和机器人作为对手？
                                 if(winnerIndex != -1){
                                     var removed = rankingLoserSection.splice(winnerIndex,1,winner);
-                                    console.log('rankingLoserSection-->>',rankingLoserSection,removed);
+                                    console.log('rankingLoserSection-->>',removed);
                                 } else {
 
                                 }
 
                                 if(loserIndex != -1){
                                     var removed = rankingWinnerSection.splice(loserIndex,1,loser);
-                                    console.log('rankingLoserSection-->>',rankingWinnerSection,removed);
+                                    console.log('rankingLoserSection-->>',removed);
                                 } else {
 
                                 }
@@ -192,8 +187,6 @@
                             //console.log('ranking-->>',ranking);
 
                             changePosition(ranking[4][1], ranking[0][1]);
-
-
 
                         </code>
                     </pre>
