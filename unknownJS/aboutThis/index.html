@@ -130,33 +130,6 @@
 
                     <span class="nx">doSomething</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">doSomethingElse</span><span class="p">);</span>
                 </code></pre></div>
-                <p>If you know the answer, then congratulations: you&#39;re a promises ninja. You have my permission to stop reading this blog post.</p>
-
-                <p>For the other 99.99% of you, you&#39;re in good company. Nobody who responded to my tweet could solve it, and I myself was surprised by the answer to #3. Yes, even though I wrote the quiz!</p>
-
-                <p>The answers are at the end of this post, but first, I&#39;d like to explore why promises are so tricky in the first place, and why so many of us &ndash; novices and experts alike &ndash; get tripped up by them. I&#39;m also going to offer what I consider to be the singular insight, the <em>one weird trick</em>, that makes promises a cinch to understand. And yes, I really do believe they&#39;re not so hard after that!</p>
-
-                <p>But to start with, let&#39;s challenge some common assumptions about promises.</p>
-
-                <h2>Wherefore promises?</h2>
-
-                <p>If you read the literature on promises, you&#39;ll often find references to <a href="https://medium.com/@wavded/managing-node-js-callback-hell-1fe03ba8baf">the pyramid of doom</a>, with some horrible callback-y code that steadily stretches toward the right side of the screen.</p>
-
-                <p>Promises do indeed solve this problem, but it&#39;s about more than just indentation. As explained in the brilliant talk <a href="http://youtu.be/hf1T_AONQJU">&quot;Redemption from Callback Hell&quot;</a>, the real problem with callbacks it that they deprive us of keywords like <code>return</code> and <code>throw</code>. Instead, our program&#39;s entire flow is based on <em>side effects</em>: one function incidentally calling another one.</p>
-
-                <p>And in fact, callbacks do something even more sinister: they deprive us of the <em>stack</em>, which is something we usually take for granted in programming languages. Writing code without a stack is a lot like driving a car without a brake pedal: you don&#39;t realize how badly you need it, until you reach for it and it&#39;s not there.</p>
-
-                <p>The whole point of promises is to give us back the language fundamentals we lost when we went async: <code>return</code>, <code>throw</code>, and the stack. But you have to know how to use promises correctly in order to take advantage of them.</p>
-
-                <h2>Rookie mistakes</h2>
-
-                <p>Some people try to explain promises <a href="http://andyshora.com/promises-angularjs-explained-as-cartoon.html">as a cartoon</a>, or in a very noun-oriented way: &quot;Oh, it&#39;s this thing you can pass around that represents an asynchronous value.&quot;</p>
-
-                <p>I don&#39;t find such explanations very helpful. To me, promises are all about code structure and flow. So I think it&#39;s better to just go over some common mistakes and show how to fix them. I call these &quot;rookie mistakes&quot; in the sense of, &quot;you&#39;re a rookie now, kid, but you&#39;ll be a pro soon.&quot;</p>
-
-                <p>Quick digression: &quot;promises&quot; mean a lot of different things to different people, but for the purposes of this article, I&#39;m only going to talk about <a href="https://promisesaplus.com/">the official spec</a>, as exposed in modern browsers as <code>window.Promise</code>. Not all browsers have <code>window.Promise</code> though, so for a good polyfill, check out the cheekily-named <a href="https://github.com/calvinmetcalf/lie">Lie</a>, which is about the smallest spec-compliant library out there.</p>
-
-                <h2>Rookie mistake #1: the promisey pyramid of doom</h2>
 
                 <p>Looking at how people use PouchDB, which has a largely promise-based API, I see a lot of poor promise patterns. The most common bad practice is this one:</p>
                 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remotedb</span><span class="p">.</span><span class="nx">allDocs</span><span class="p">({</span>
