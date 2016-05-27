@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="01a71ff3-57b1-4bd4-afc9-56acbb244736" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unknownJS/aboutThis/index.html" afterPath="$PROJECT_DIR$/unknownJS/aboutThis/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NextZeus.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +28,10 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/unknownJS/aboutThis/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.84810126">
-                  <caret line="128" column="64" selection-start-line="128" selection-start-column="64" selection-end-line="128" selection-end-column="64" />
+                <state vertical-scroll-proportion="0.33273056">
+                  <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
                   <folding>
                     <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#a#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#style#0;n#code#0;n#pre#0;n#div#1;n#article#0;n#div#0;n#article#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -405,11 +403,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/unknownJS/aboutThis/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84810126">
-          <caret line="128" column="64" selection-start-line="128" selection-start-column="64" selection-end-line="128" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.33273056">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
           <folding>
             <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#code#0;n#pre#0;n#div#1;n#article#0;n#div#0;n#article#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
