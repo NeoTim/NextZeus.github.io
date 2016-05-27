@@ -104,7 +104,7 @@
                 <p><strong>Q: What is the difference between these four promises?</strong></p>
                 <div class="highlight">
                     <pre>
-                        <code class="language-js" data-lang="js">
+                        <code class="language-js" data-lang="js" style="width: 100%">
                             function identify(){
                                 return this.name.toUpperCase();
                             }
@@ -122,11 +122,11 @@
                                 name    :   "Reader"
                             }
 
-                            identify.call(me);
-                            identify.call(you);
+                            identify.call(me);//KYLE
+                            identify.call(you);//READER
 
-                            speak.call(me);
-                            speak.call(you);
+                            speak.call(me);//Hello , I`m KYLE
+                            speak.call(you);//Hello , I`m READER
                         </code>
                     </pre>
                 </div>
