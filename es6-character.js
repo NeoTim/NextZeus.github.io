@@ -79,3 +79,67 @@ const foo = Object.freeze(); //对象冻结
 foo.prop = 129;
 //常规模式 不起作用
 //strice模式报错 
+
+function* fibs(){
+    var a = 0;
+    var b = 1;
+    while( true){
+        yield a;
+        [a,b] = [b,a+b];
+    }
+}
+var [first , second, third, fourth, fifth,sixth] = fibs();
+
+//fibs 是一个Generator函数 
+
+let [x = 1, y = x] = [1, 2]; // x=1; y=2
+let [x = y, y = 1] = [];     // ReferenceError 因为x用到默认值y时，y还没有声明。
+
+var s = 'Hello world!';
+
+s.startsWith('Hello') // true
+s.endsWith('!') // true
+s.includes('o') // true
+
+'x'.repeat(3) // "xxx"
+'hello'.repeat(2) // "hellohello"
+'na'.repeat(0) // ""
+
+'x'.padStart(5, 'ab') // 'ababx'
+'x'.padStart(4, 'ab') // 'abax'
+
+'x'.padEnd(5, 'ab') // 'xabab'
+'x'.padEnd(4, 'ab') // 'xaba'
+
+'xxx'.padStart(2, 'ab') // 'xxx'
+'xxx'.padEnd(2, 'ab') // 'xxx'
+
+'x'.padStart(4) // '   x'
+'x'.padEnd(4) // 'x   '
+
+
+
+
+//Set 类似数组 没有重复的值
+Set实例的属性和方法
+Set结构的实例有以下属性。
+
+Set.prototype.constructor：构造函数，默认就是Set函数。
+Set.prototype.size：返回Set实例的成员总数。
+Set实例的方法分为两大类：操作方法（用于操作数据）和遍历方法（用于遍历成员）。下面先介绍四个操作方法。
+
+add(value)：添加某个值，返回Set结构本身。
+delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+has(value)：返回一个布尔值，表示该值是否为Set的成员。
+clear()：清除所有成员，没有返回值。
+
+.add.add.add.clear.add.delete.has
+
+// Map 像redis hash
+// set add has get delete clear
+// .set.set..
+// map.size NaN 可以做key
+
+
+
+
