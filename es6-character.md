@@ -51,7 +51,7 @@ function func( arg ){
   let arg;
 }
 
-```
+
 
 'use strice'
 const foo = 1;// strice模式下 声明时必须赋值
@@ -80,6 +80,8 @@ const foo = Object.freeze(); //对象冻结
 foo.prop = 129;
 //常规模式 不起作用
 //strice模式报错 
+```
+
 ```javascript
 function* fibs(){
     var a = 0;
@@ -90,7 +92,7 @@ function* fibs(){
     }
 }
 var [first , second, third, fourth, fifth,sixth] = fibs();
-```
+
 //fibs 是一个Generator函数 
 
 let [x = 1, y = x] = [1, 2]; // x=1; y=2
@@ -118,7 +120,7 @@ s.includes('o') // true
 'x'.padStart(4) // '   x'
 'x'.padEnd(4) // 'x   '
 
-
+```
 
 
 //Set 类似数组 没有重复的值
@@ -201,6 +203,24 @@ yield语句与return语句既有相似之处，也有区别。
 正常函数只能返回一个值，因为只能执行一次return；Generator函数可以返回一系列的值，因为可以有任意多个yield。
 从另一个角度看，也可以说Generator生成了一系列的值，这也就是它的名称的来历（在英语中，generator这个词是“生成器”的意思）。
 
+
+
+Generator函数可以不用yield语句，这时就变成了一个单纯的暂缓执行函数。
+```javascript
+function* f() {
+  console.log('执行了！')
+}
+
+var generator = f();
+
+setTimeout(function () {
+  generator.next()
+}, 2000);
+```
+上面代码中，函数f如果是普通函数，在为变量generator赋值时就会执行。
+但是，函数f是一个Generator函数，就变成只有调用next方法时，函数f才会执行。
+
+另外需要注意，yield语句不能用在普通函数中，否则会报错。 只能在Generator函数中使用
 
 
 
