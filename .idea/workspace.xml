@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01a71ff3-57b1-4bd4-afc9-56acbb244736" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/es6/Generator.js" afterPath="$PROJECT_DIR$/es6/Generator.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NextZeus.github.io.iws" />
@@ -49,8 +48,8 @@
       <file leaf-file-name="Generator.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/es6/Generator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8932384">
-              <caret line="194" column="9" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.22597864">
+              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc;n#gen#0" expanded="false" />
                 <element signature="e#926#1138#0" expanded="false" />
@@ -411,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/es6/Generator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8932384">
-          <caret line="194" column="9" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.22597864">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc;n#gen#0" expanded="false" />
             <element signature="e#926#1138#0" expanded="false" />
