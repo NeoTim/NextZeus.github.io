@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业</title>
+	</head>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.box{
+			transition:2s;
+			width: 800px;
+			height: 600px;
+			margin: auto;
+			position: relative;
+		}
+		.box div{
+			text-align: center;
+			line-height: 100px;
+			position: absolute;
+			width: 200px;
+			height: 100px;
+		}
+		.div1{
+			top:10px;
+			left:300px;
+			
+		}
+		.div2{
+			top:110px;
+			left:100px;
+			transform: skewY(-45deg);
+			
+		}
+		.div3{
+			top:110px;
+			left:500px;
+			transform: skewY(45deg);
+			
+		}
+		.div4{
+			top:310px;
+			left:100px;
+			transform: skewY(45deg);
+			
+		}
+		.div5{
+			top:310px;
+			left:500px;
+			transform: skewY(-45deg);
+			
+		}
+		.div6{
+			top:410px;
+			left:300px;
+			
+		}
+		
+	</style>
+	<body>
+		<div class="box">
+			<div class="div1" style="background: red;">1</div>
+			<div class="div2" style="background: blue;">2</div>
+			<div class="div3" style="background: #f0f;">6</div>
+			<div class="div4" style="background: yellowgreen;">3</div>
+			<div class="div5" style="background: burlywood;">5</div>
+			<div class="div6" style="background: blueviolet;">4</div>
+		</div>
+		<button class="btn">Click</button>
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function(){
+				var divs=$('.box').find('div');
+				var divs0;
+				//点击变换
+				$('.btn').click(function(){
+					class0=$(divs[0]).attr('class');					
+					for(var i=0;i<divs.length;i++){						
+						if(i==5){
+							$(divs[5]).removeClass().addClass(class0);
+						}else{
+							$(divs[i]).removeClass().addClass($(divs[i+1]).attr('class'));
+						}						
+					};
+				});
+				
+			});
+		
+		</script>
+	</body>
+</html>

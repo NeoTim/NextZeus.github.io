@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		@keyframes spin{
+			to{transform: rotate(1turn);}
+		}
+		/*@keyframes spin-reverse{
+			from{transform: rotate(1turn);}
+		}
+		这里只是为了使avatar 和 img 的运动方向相反，从而可以使img 始终头朝上
+		* */
+		.avatar{
+			animation: spin 8s infinite linear;
+			transform-origin: 50% 150px;/*150px 即 path 的radius*/
+		}
+		.path{
+			width: 300px;
+			height: 300px;
+			padding: 20px;
+			margin: 50px auto;
+			background: greenyellow;
+			border-radius: 50%;
+		}
+		.avatar{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			margin: 0 auto;
+			display: block;
+			overflow: hidden;		
+		}
+		.avatar>img{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			animation: inherit;/*继承父元素的属性，如果调整动画时间时，只需要调整父元素的*/
+			/*animation-name:spin-reverse;   此处用下面的替换 reverse:反向的，相反的*/
+			animation-direction:reverse;
+		}
+	</style>
+	<body>
+		<div class="path">
+			<div class="avatar">
+				<img src="imgs/9.jpg" />
+			</div>
+		</div>
+	</body>
+</html>

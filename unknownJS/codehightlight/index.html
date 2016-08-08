@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link href="../../css/monokai_sublime.min.css" rel="stylesheet">
+    <script src="../../js/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+    </head>
+<body>
+    <pre style="width: 800px">
+        <code>
+            /*
+            *link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css"
+            *script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js">
+            */
+            function identify(){
+                return this.name.toUpperCase();
+            }
+
+            function speak(){
+            var greeting = "Hello , I`m " + identify.call(this);
+                console.log(greeting);
+            }
+
+            var me = {
+                name    :   "Kyle"
+            }
+
+            var you = {
+                name    :   "Reader"
+            }
+
+            identify.call(me);
+            identify.call(you);
+
+            speak.call(me);
+            speak.call(you);
+        </code>
+    </pre>
+</body>
+</html>

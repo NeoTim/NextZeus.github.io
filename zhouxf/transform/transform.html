@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>transform</title>
+	</head>
+	<style>
+		div{
+			transition:2s;
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin:70px;
+		}
+		.div1:hover{
+			transform: rotate(45deg);
+		}
+		
+		.div2:hover{
+			transform:skew(10deg,-20deg);
+		}
+		.div3:hover{
+			transform:scale(1,2) ;
+		}
+		.div4:hover{
+			transform:translate(20px,30px);
+		}
+	</style>
+	<body>
+		<div class="div1">这是DIV1</div>
+		<div class="div2">这是DIV2</div>
+		<div class="div3">这是DIV3</div>
+		<div class="div4">这是DIV4</div>
+	</body>
+</html>

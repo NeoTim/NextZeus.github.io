@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--点击下载查看图片-->
+		<img src="imgs/1.jpg" />
+		<a href="imgs/1.jpg">下载</a>
+		<!--点击下载可直接下载图片，而不是查看图片-->
+		<img src="imgs/2.jpg" />
+		<a href="imgs/2.jpg" download>下载</a>
+		
+		
+		<!--	caniuse展示的兼容性只是个笼统，根据鄙人的实地测试，事情要比看到的复杂。
+			主要表现在跨域策略的处理上，由于我手上没有IE13，所以，只能对比Chrome浏览器和FireFox浏览器：
+			如果需要下载的资源是跨域的，包括跨子域，在Chrome浏览器下，使用download属性是可以下载的，
+			但是，并不能重置下载的文件的命名；而FireFox浏览器下，则download属性是无效的，
+			也就是FireFox浏览器无论如何都不支持跨域资源的download属性下载。
+			而，如果资源是同域名的，则两个浏览器都是畅通无阻的下载，不会出现下载变浏览的情况。			
+			牵涉到浏览器兼容和跨域策略
+			需要检测当前浏览器是否支持download属性，
+			var isSupportDownload='download'in document.createElement('a');
+		-->
+	</body>
+</html>
