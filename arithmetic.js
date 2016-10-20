@@ -38,6 +38,67 @@ function selectionSort(arr) {
 var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
 console.log(selectionSort(arr));
 
+//希尔排序
+function shellSort(arr) {
+    var len = arr.length,
+        temp,
+        gap = 1;
+    console.time('希尔排序耗时:');
+    while(gap < len/5) {          //动态定义间隔序列
+        gap =gap*5+1;
+    }
+    for (gap; gap > 0; gap = Math.floor(gap/5)) {
+        for (var i = gap; i < len; i++) {
+            temp = arr[i];
+            for (var j = i-gap; j >= 0 && arr[j] > temp; j-=gap) {
+                arr[j+gap] = arr[j];
+            }
+            arr[j+gap] = temp;
+        }
+    }
+    console.timeEnd('希尔排序耗时:');
+    return arr;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(shellSort(arr));/
+
+//归并排序
+function mergeSort(arr) {  //采用自上而下的递归方法
+    var len = arr.length;
+    if(len < 2) {
+        return arr;
+    }
+    var middle = Math.floor(len / 2),
+        left = arr.slice(0, middle),
+        right = arr.slice(middle);
+    return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right)
+{
+    var result = [];
+    console.time('归并排序耗时');
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+
+    while (left.length)
+        result.push(left.shift());
+
+    while (right.length)
+        result.push(right.shift());
+    console.timeEnd('归并排序耗时');
+    return result;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(mergeSort(arr));
+
+
+
 //插入排序
 function insertionSort(array) {
     if (Object.prototype.toString.call(array).slice(8, -1) === 'Array') {
