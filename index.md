@@ -1,14 +1,26 @@
-### Welcome to GitHub Pages.
-This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here [using GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/), select a template crafted by a designer, and publish. After your page is generated, you can check out the new `gh-pages` branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.
+# 老顽童/Jack Li/ NextZeus.
 
-### Designer Templates
-We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.
+![avatar](https://avatars3.githubusercontent.com/u/10203487?v=3&u=6909e4e5240bfaf46c0f66b4507c0174a9f88ecf&s=400)
 
-### Creating pages manually
-If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.
+## Profile
 
-### Authors and Contributors
-You can @mention a GitHub username to generate a link to their profile. The resulting `<a>` element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.
+* 14年毕业于河南工业大学计算机科学与技术专业
+* 
+* 13年开始使用Node.js作为开发平台至今
+* 14年至今 从事游戏服务器端开发
+* 开发游戏包括：MMORPG, ARPG, H5
+* 熟悉游戏开发框架: Pomelo , Express 
+* 熟悉数据库：MySQL, Redis, Mongodb
+* 可以独立部署服务器，了解Linux操作系统与基本shell命令
+* 熟练使用pm2 管理服务器 
+* 使用过Python+BeautifulSoup爬取网络主播信息
+* 参与NodeParty[北京]，分享过Pomelo服务器框架
+* 参与过Pomelo中的开源项目以及其他开源项目
+* 了解Typescript, PHP 语言基本语法
+* 了解React, ReactNative, VueJS ,EJS 
 
-### Support or Contact
-Having trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+## 个人履历
+
+
+
