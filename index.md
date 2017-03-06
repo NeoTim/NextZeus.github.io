@@ -1,4 +1,4 @@
-# [老顽童](https://github.com/NextZeus)/[Jack Li](https://github.com/NextZeus)/ [NextZeus](https://github.com/NextZeus])
+# [老顽童](https://github.com/NextZeus)/[Jack Li](https://github.com/NextZeus)/[NextZeus](https://github.com/NextZeus])
 
 ![avatar](https://avatars3.githubusercontent.com/u/10203487?v=3&u=6909e4e5240bfaf46c0f66b4507c0174a9f88ecf&s=400)
 
