@@ -129,6 +129,6 @@ process.on('uncaughtException', function(err){
 
 ### 其他文章
 
-[connector](nextzeus.github.io/pomelo/connector)
-[router](nextzeus.github.io/pomelo/router)
-[distributedDeployment](nextzeus.github.io/pomelo/distributedDeployment)
+[connector](connector/)
+[router](router/)
+[distributedDeployment](distributedDeploymen/)
