@@ -124,3 +124,11 @@ process.on('uncaughtException', function(err){
 
 1. max-connections(optional) 前端server可以hold的最大连接数
 2. cpu 设置服务器的cpu相关性的过程,只适用于unix platform
+
+
+
+### 其他文章
+
+[connector](nextzeus.github.io/pomelo/connector)
+[router](nextzeus.github.io/pomelo/router)
+[distributedDeployment](nextzeus.github.io/pomelo/distributedDeployment)
