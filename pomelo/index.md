@@ -148,6 +148,7 @@ process.on('uncaughtException', function(err){
 下面看下它的框架结构
 
 ### pomelo框架
+
 ![框架](https://camo.githubusercontent.com/1c88f142423bed8f67b19a71689e6360ce6c1ebc/687474703a2f2f706f6d656c6f2e6e6574656173652e636f6d2f7265736f757263652f646f63756d656e74496d6167652f706f6d656c6f2d617263682e706e67)
 
 1. server management, pomelo是个真正多进程、分布式的游戏服务器。因此各游戏server(进程)的管理是pomelo很重要的部分，框架通过抽象使服务器的管理非常容易。
@@ -157,6 +158,7 @@ process.on('uncaughtException', function(err){
 ### 服务器类型
 pomelo框架提供了一套灵活，快捷的服务器类型系统。 通过pomleo框架，开发者可以自由地定义自己的服务类型，分配管理进程资源。
 在pomelo框架中，根据服务器的职责的不同，服务器主要分为fronted 和 backend两类型，二者关系如下图所示：
+
 ![](https://camo.githubusercontent.com/5935f0403ef84c20197af32d6ca0d86069c742b3/687474703a2f2f706f6d656c6f2e6e6574656173652e636f6d2f7265736f757263652f646f63756d656e74496d6167652f7365727665722d747970652e706e67)
 
 ##### fronted
@@ -173,7 +175,78 @@ notify是单向的，客户端通知服务器端的消息， 服务器端无需�
 push 是服务器主动推送消息给客户端,客户端注册监听事件，处理具体的事件逻辑 比如：公告，邮件等
 
 整个请求响应过程如下图：
+
 ![](http://img.hb.aicdn.com/5c9e12db624e5d47d552d3dedcd12e70e90e20e66d69-WTDIyk_fw658)
+
+#### 请求流程处理
+
+![](https://camo.githubusercontent.com/f7a405773f551d70ffc001f3768166d13b479687/687474703a2f2f706f6d656c6f2e6e6574656173652e636f6d2f7265736f757263652f646f63756d656e74496d6167652f726571756573742d666c6f772e706e67)
+
+1. filter: before, after 过滤器； 请求处理前和请求处理后调用
+2. handler 业务逻辑接口
+
+##### filter过滤器
+
+```
+
+module.exports = function(){
+    return new Filter();
+}
+
+var Filter = function(opt){
+    
+}
+
+var filter = Filter.prototype;
+
+//before
+filter.before = function(msg, session, next){
+    next();
+    //进入到下一个before filter
+}
+
+//after
+filter.after = function(err, msg, session, resp, next){
+    //todo 
+    next();
+}
+
+```
+
+##### handler
+
+```
+
+module.exports = function(){
+    return bearcat.getBean(Handler);
+}
+
+var Handler = function(){
+    this.$id = 'Handler';
+}
+
+handler.methodName = function(msg, session, next){
+
+}
+
+
+```
+
+##### errorHandler 全局异常处理
+
+```
+/**
+* err 前面流程发生的异常
+* resp 是前面流程传递过来，要返回给客户端的响应信息
+* 其他参数与前面的handler一样
+*/
+errorHandler = function(err, msg, resp , session, next){
+    //todo 
+}
+
+app.set('errorHandler',errorHandler);
+
+```
 
 
 
