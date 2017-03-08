@@ -129,6 +129,6 @@ process.on('uncaughtException', function(err){
 
 ### 其他文章
 
-[connector](connector/)
-[router](router/)
-[distributedDeployment](distributedDeploymen/)
+1. [connector](connector/)
+2. [router](router/)
+3. [distributedDeployment](distributedDeployment/)
