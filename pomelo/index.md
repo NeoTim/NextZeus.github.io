@@ -248,6 +248,23 @@ app.set('errorHandler',errorHandler);
 
 ```
 
+### Session
+session可以看成一个简单的key/value的对象，主要是维护当前玩家状态信息，比如：当前玩具的id, fronted服务器等
+session对象由客户端所连接的frontend服务器维护。
+在分发请求给backend服务器时，frontend服务器会克隆session， 连同请求一起发送给backend服务器。
+在backend服务器上，session应该是只读的，或者起码只是本地读写的一个对象。
+任何直接在session上的修改，只对本服务器进程生效，并不会影响玩家的全局状态信息。
+如需修改全局session里的状态信息，需要调用frontend服务器提供的RPC服务。
+
+```
+//connector/entryHandler.entry
+
+session.bind(uid);
+session.set(key,value);
+
+session.pushAll();//同步session给前端服务器
+
+```
 
 
 ### servers.json 
