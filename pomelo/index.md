@@ -266,6 +266,17 @@ session.pushAll();//同步session给前端服务器
 
 ```
 
+### Channel
+应用场景：推送广播消息
+Channel是服务器向客户端推送消息的通道。 
+Channel可以看成是一个玩家ID的容器。 比如一个公会的成员，就是一个容器，公会内部聊天，只推送给公会的成员
+Channel只适用于服务器进程本地，及在服务器进程A创建的channel和在服务器进程B创建的channel是不同的，互相独立的
+
+channel分两类： 具有channel_name和匿名channel, 区别在于匿名channel推送消息需制定uids。
+推送消息过程：
+1. channel所在的服务器进程将消息推送到玩家客户端所连接的frontend进程[依赖底层的RPC框架]
+2. 通过frontend进程将消息推送给玩家客户端[推送钱会根据玩家所在的frontend服务器ID分组,log中会现实groups:[{'connector-server-1':[uid1]}]]
+
 
 ### servers.json 
 
