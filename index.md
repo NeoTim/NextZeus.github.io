@@ -12,15 +12,18 @@
 * 熟悉游戏开发框架: Pomelo , Express, Koa 
 * 熟悉数据库：MySQL, Redis, Mongodb
 * 可以独立部署服务器，了解Linux操作系统与基本shell命令
-* 熟练使用pm2 管理服务器 
+* 熟练使用pm2 部署管理服务器群
 * 使用过Python+BeautifulSoup爬取网络主播信息
 * 参与NodeParty[北京]，分享过Pomelo服务器框架
 * 参与过Pomelo中的开源项目以及其他开源项目
-* 了解Typescript, PHP 语言基本语法
+* 了解Typescript, PHP 语言
 * 了解React, ReactNative, VueJS ,EJS 
 
 
-## 个人履历
+## 文章列表
+
+1. [Pomelo](http://nextzeus.github.io/pomelo/)
+2. [Node.js](http://nextzeus.github.io/nodejs/)
 
 
 
