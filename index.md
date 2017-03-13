@@ -5,11 +5,11 @@
 ## Profile
 
 * 14年毕业于河南工业大学计算机科学与技术专业
-* 
 * 13年开始使用Node.js作为开发平台至今
 * 14年至今 从事游戏服务器端开发
+* 了解ES6新特性以及用法，并在实际项目中使用
 * 开发游戏包括：MMORPG, ARPG, H5
-* 熟悉游戏开发框架: Pomelo , Express, Koa 
+* 熟悉游戏开发框架: Pomelo ,Express, Koa 
 * 熟悉数据库：MySQL, Redis, Mongodb
 * 可以独立部署服务器，了解Linux操作系统与基本shell命令
 * 熟练使用pm2 部署管理服务器群
