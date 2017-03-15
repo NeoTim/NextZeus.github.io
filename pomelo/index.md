@@ -290,3 +290,6 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 1. [connector](connector/)
 2. [router](router/)
 3. [distributedDeployment](distributedDeployment/)
+4. [pomelo-cli](pomelo-cli/)
+5. [pomelo-rpc-zeromq](pomelo-rpc-zeromq/)
+6. [component](component/)
