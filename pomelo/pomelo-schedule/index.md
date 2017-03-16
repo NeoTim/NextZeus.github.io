@@ -19,23 +19,23 @@ var xiazhu = function(data){
 
 function gamestart(data) {
     console.log("run Job :" + data.name,' time: ', getTime());
-    schedule.scheduleJob({start:Date.now()+15000}, gameend, {name: '发奖'});
+    schedule.scheduleJob({start:Date.now()+15000}, gameend, {name: '开始发奖'});
 }
 
 function gameend(data) {
     console.log("run Job :" + data.name,' time: ', getTime());
 }
 
-schedule.scheduleJob({start:Date.now(), period:45000}, xiazhu, {name: '下注'});
-
+console.log('game start time: ', getTime())
+schedule.scheduleJob({start:Date.now(), period:45000}, xiazhu, {name: '开始下注'});
 
 //result
-run Job :下注  time:  2017-03-16 09:57:45
-run Job :开始游戏  time:  2017-03-16 09:58:00
-run Job :发奖  time:  2017-03-16 09:58:15
-run Job :下注  time:  2017-03-16 09:58:30
-run Job :开始游戏  time:  2017-03-16 09:58:45
-run Job :发奖  time:  2017-03-16 09:59:00
+rgame start time:  2017-03-16 10:05:46
+run Job :开始下注  time:  2017-03-16 10:05:46
+run Job :开始游戏  time:  2017-03-16 10:06:01
+run Job :开始发奖  time:  2017-03-16 10:06:16
+run Job :开始下注  time:  2017-03-16 10:06:31
+run Job :开始游戏  time:  2017-03-16 10:06:46
 
 ```
 
