@@ -295,3 +295,4 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 6. [component](component/)
 7. [hotupdate](hotupdate/)
 8. [bearcat](bearcat/)
+9. [addserver](addserver/)
