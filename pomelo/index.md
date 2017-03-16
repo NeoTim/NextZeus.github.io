@@ -296,3 +296,4 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 7. [hotupdate](hotupdate/)
 8. [bearcat](bearcat/)
 9. [addserver](addserver/)
+10. [pomelo-schedule](pomelo-schedule/)
