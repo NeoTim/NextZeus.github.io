@@ -123,7 +123,7 @@ process.on('uncaughtException', function(err){
 ### 为什么采用node.js开发
 1. node.js: fast, scalable,realtime,network符合游戏服务器的要求
 2. noee.js在网络io上支持高并发，非阻塞的优势满足游戏服务器网络密集型，实时性要求极高的特点
-3. node.js天生单线程，处理复杂逻辑的时候 无需考虑县城同步，锁，死锁等问题
+3. node.js天生单线程，处理复杂逻辑的时候 无需考虑线程同步，锁，死锁等问题
 4. 语言优势 js开发可实现快速迭代
 
 ### 运行架构图
@@ -298,3 +298,4 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 9. [addserver](addserver/)
 10. [pomelo-schedule](pomelo-schedule/)
 11. [pushMessage](pushMessage/)
+12. [notify](notify/)
