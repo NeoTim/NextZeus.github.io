@@ -287,6 +287,7 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 
 ### 其他文章
 
+0. [installPomeloDep](installPomeloDep/)
 1. [connector](connector/)
 2. [router](router/)
 3. [distributedDeployment](distributedDeployment/)
