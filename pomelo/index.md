@@ -300,3 +300,4 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 11. [pushMessage](pushMessage/)
 12. [notify](notify/)
 13. [sessionClosed](sessionClosed/)
+14. [heartbeat](heartbeat/)
