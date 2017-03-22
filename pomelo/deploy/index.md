@@ -42,8 +42,8 @@ master.json
 zeromq 在配置proxyClient, remoteServer时会用到。
 zeromq我没有做深入的了解，以后了解了，会分享出来。
 
-## Debian Ubuntu
-[install debian/zeromq](http://zeromq.org/distro:debian)
+## Debian Ubuntu14.04
+[参考官网install debian/zeromq](http://zeromq.org/distro:debian)
 > apt-get update
 >
 > sudo apt-get install libtool pkg-config build-essential autoconf automake
@@ -53,18 +53,24 @@ zeromq我没有做深入的了解，以后了解了，会分享出来。
 > npm i zmq [如果能安装成功 则说明zeromq已安装成功]
 
 ## Centos 6
-[install centos/zeromq](http://zeromq.org/distro:centos)
+[参考官网install centos/zeromq](http://zeromq.org/distro:centos)
 
-第一步需要配置 RHEL/CentOS 6: http://download.opensuse.org/repositories/home:/fengshuo:/zeromq/CentOS_CentOS-6/home:fengshuo:zeromq.repo
->cd /etc/yum.repos.d/
+1. 第一步需要配置 RHEL/CentOS 6: http://download.opensuse.org/repositories/home:/fengshuo:/zeromq/CentOS_CentOS-6/home:fengshuo:zeromq.repo
+
+> cd /etc/yum.repos.d/
 >
->wget http://download.opensuse.org/repositories/home:/fengshuo:/zeromq/CentOS_CentOS-6/home:fengshuo:zeromq.repo
+> sudo wget http://download.opensuse.org/repositories/home:/fengshuo:/zeromq/CentOS_CentOS-6/home:fengshuo:zeromq.repo
 >
->cd ~
+> cd ~
 >
->yum install libtool pkgconfig build-essential autoconf automake
+> yum install libtool pkgconfig autoconf automake
+> 
+> yum groupinstall "Development Tools" [build-essential 只能在Centos系统上安装不了]
 >
->yum install zeromq-devel
+> yum install zeromq-devel
+
+参考：
+1. [build-essentials-in-centos](http://www.asim.pk/2010/05/28/build-essentials-in-centos/)
 
 ### Centos安装Zeromq遇到的问题
 
