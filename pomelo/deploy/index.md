@@ -98,3 +98,4 @@ CC=/opt/rh/devtoolset-3/root/usr/bin/gcc CXX=/opt/rh/devtoolset-3/root/usr/bin/g
 4. 如果遇到build问题，查看gcc -v ，如果低于4.9, 则执行
     * sudo su
     * CC=/opt/rh/devtoolset-3/root/usr/bin/gcc CXX=/opt/rh/devtoolset-3/root/usr/bin/g++ npm install zmq
+
