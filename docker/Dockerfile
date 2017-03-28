@@ -1,20 +1,3 @@
-# Docker
-
-
- >$ docker build -t nextzeus/helloworld .
- >$ docker run -d -p 8080:80 --name helloworld nextzeus/helloworld
- >$ 
- >$ sudo vim /etc/hosts 
- >$ 192.168.1.25 helloworld.me
- >$ live-server
-
- >$ docker login
- >$ docker push nextzeus/helloworld
-
-下面是我写的创建pomelo应用环境的Dockerfile
-
-```
-
 FROM ubuntu:14.04
 MAINTAINER Li XiaoDong
 
@@ -58,4 +41,8 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # install pomelo
 RUN sudo npm i pomelo -g 
 
-```
+
+
+
+
+
