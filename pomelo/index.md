@@ -262,7 +262,9 @@ session对象由客户端所连接的frontend服务器维护。
 session.bind(uid);
 session.set(key,value);
 
-session.pushAll();//同步session给前端服务器
+session.pushAll();//同步session给后端服务器
+
+前端和后端session 都可以通过session.set session.pushAll() 互相同步session信息
 
 ```
 
@@ -283,7 +285,6 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 1. max-connections(optional) 前端server可以hold的最大连接数
 2. cpu 设置服务器的cpu相关性的过程,只适用于unix platform
 
-### bearcat
 
 ### 其他文章
 
