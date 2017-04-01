@@ -314,7 +314,8 @@ var app = pomelo.createApp({
 
 ### [常见问题答疑](question/)
 ### 早期写的简书文章
-[](http://www.jianshu.com/c/f42580039b45)
+
+[Pomelo游戏开发](http://www.jianshu.com/c/f42580039b45)
 
 ### 其他文章
 0. [installPomeloDep](installPomeloDep/)
