@@ -5,5 +5,5 @@
 
 
 #### 解答
-1. 问题1 请看[onlineUser](onlineUser/)
-2. 问题2 请看[pushMessage](pushMessage/)
+1. 问题1 请看[onlineUser](../onlineUser/)
+2. 问题2 请看[pushMessage](../pushMessage/)
