@@ -3,15 +3,15 @@
 使用pomelo2.2.5版本时，设置心跳如下：
 
 ```
-var hearbeat = 10;
+var heartbeat = 10;
 app.set('connectorConfig', {
     connector : pomelo.connectors.hybridconnector,
-    heartbeat : hearbeat,
-
+    heartbeat : heartbeat,
+    timeout:    heartbeat * 2,
     // disconnectOnTimeout: true,
     handshake: function (msg, cb) {
         // console.log('connector handshake msg: ', msg);
-        cb(null, {code:200, sys:{heartbeat:hearbeat}});
+        cb(null, {code:200, sys:{heartbeat:heartbeat}});
     }
 });
 
@@ -21,38 +21,9 @@ app.set('connectorConfig', {
 > client 1 timeout 
 
 
-查看源码后发现，代码写的是有问题的。
-
-
-```
-
-if(self.disconnectOnTimeout) {
-    //直接赋值会导致clearTimeout失效
-    self.timeouts[socket.id] = setTimeout(function() {
-      logger.info('client %j heartbeat timeout.', socket.id);
-      socket.disconnect();
-    }, self.timeout);
-}
-
-
-var clearTimers = function(self, id) {
-  delete self.clients[id];
-  var tid = self.timeouts[id];
-  //取到的tid不是赋值时候的tid
-  if(tid) {
-    clearTimeout(tid);
-    delete self.timeouts[id];
-  }
-};
+### 源码修改 this 都替换成了 self 
 
 ```
-
-
-
-### 修改
-
-```
-
 var Package = require('pomelo-protocol').Package;
 var logger = require('pomelo-logger').getLogger('pomelo', __filename);
 
@@ -62,13 +33,13 @@ var logger = require('pomelo-logger').getLogger('pomelo', __filename);
  * @param {Object} opts option request
  *                      opts.heartbeat heartbeat interval
  */
-var Command = function (opts) {
+var Command = function(opts) {
     opts = opts || {};
     this.heartbeat = null;
     this.timeout = null;
     this.disconnectOnTimeout = opts.disconnectOnTimeout;
 
-    if (opts.heartbeat) {
+    if(opts.heartbeat) {
         this.heartbeat = opts.heartbeat * 1000; // heartbeat interval
         this.timeout = opts.timeout * 1000 || this.heartbeat * 2;      // max heartbeat message timeout
         this.disconnectOnTimeout = true;
@@ -78,62 +49,65 @@ var Command = function (opts) {
     this.clients = {};
 };
 
-//声明全局变量
-var newTid = null,oldTid = null;
+module.exports = Command;
 
-Command.prototype.clearTimers = function (id) {
-    var self = this;
-    delete self.clients[id];
-    oldTid = self.timeouts[id];
-    if (tid) {
-        clearTimeout(oldTid);
-        delete self.timeouts[id];
-    }
-};
-
-
-Command.prototype.handle = function (socket) {
+Command.prototype.handle = function(socket) {
     var self = this;
 
-    if (!self.heartbeat) {
+    console.warn("heart handle socket.id %s", socket.id);
+    if(!self.heartbeat) {
         // no heartbeat setting
         return;
     }
 
-    if (!self.clients[socket.id]) {
+    console.warn('heartbeat clients : ', this.clients);
+
+    if(!self.clients[socket.id]) {
         // clear timers when socket disconnect or error
+        console.log("register client socket.id: %s", socket.id);
         self.clients[socket.id] = 1;
-        socket.once('disconnect', self.clearTimers.bind(self,socket.id));
-        socket.once('error', self.clearTimers.bind(self,socket.id));
+        socket.once('disconnect', clearTimers.bind(null, self, socket.id));
+        socket.once('error', clearTimers.bind(null, self, socket.id));
     }
 
     // clear timeout timer
-    if (self.disconnectOnTimeout) {
+    if(self.disconnectOnTimeout) {
+        console.warn('begin clear timeout socket.id: %s', socket.id);
         self.clear(socket.id);
     }
 
     socket.sendRaw(Package.encode(Package.TYPE_HEARTBEAT));
 
-    if (self.disconnectOnTimeout) {
-        newTid = setTimeout(function () {
+    if(self.disconnectOnTimeout) {
+        console.log('reset timeoutId socket.id: %s', socket.id);
+        self.timeouts[socket.id] = setTimeout(function() {
+            console.error("socket closed socket.id: %s", socket.id);
             logger.info('client %j heartbeat timeout.', socket.id);
             socket.disconnect();
         }, self.timeout);
-        self.timeouts[socket.id] = newTid;
     }
 };
 
-Command.prototype.clear = function (id) {
+Command.prototype.clear = function(id) {
     var self = this;
-    oldTid = self.timeouts[id];
-    if (oldTid) {
-        console.log('tid: ',oldTid);
-        clearTimeout(oldTid);
+    var tid = self.timeouts[id];
+    if(tid) {
+        clearTimeout(tid);
         delete self.timeouts[id];
     }
 };
 
-module.exports = Command;
+var clearTimers = function(self, id) {
+    delete self.clients[id];
+    var tid = self.timeouts[id];
+    console.warn("clearTimer id: %s tid:", id, !!tid);
+    if(tid) {
+        clearTimeout(tid);
+        delete self.timeouts[id];
+        console.log('left timeouts: ',Object.keys());
+    }
+};
+
 
 ```
 

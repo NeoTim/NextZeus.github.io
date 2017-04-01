@@ -25,5 +25,5 @@
 1. [Pomelo](http://nextzeus.github.io/pomelo/)
 2. [Node.js](http://nextzeus.github.io/nodejs/)
 3. [Docker](http://nextzeus.github.io/docker/)
-4. [Candy](http://nextzeus.github.io/candy/)
+4. [Candy三消游戏](http://nextzeus.github.io/candy/)
 
