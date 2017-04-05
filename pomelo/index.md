@@ -337,3 +337,4 @@ var app = pomelo.createApp({
 17. [globalErrorHandler](globalErrorHandler/)
 18. [globalFilter](globalFilter/)
 19. [onlineUser在线玩家信息](onlineUser/)
+20. [filters](filters/)
