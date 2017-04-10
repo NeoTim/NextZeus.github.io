@@ -94,7 +94,7 @@ CC=/opt/rh/devtoolset-3/root/usr/bin/gcc CXX=/opt/rh/devtoolset-3/root/usr/bin/g
 ### 需要注意的地方
 1. game-server下package.json dependecies添加 "zmq": "2.15.3"
 2. 代码部署到服务器时，不要提交node_modules/zmq
-3. 服务器上全局安装zmq:  sudo npm i zmq -g
+3. 服务器上game-server目录下必须每次重新 npm i zmq
 4. 如果遇到build问题，查看gcc -v ，如果低于4.9, 则执行
     * sudo su
     * CC=/opt/rh/devtoolset-3/root/usr/bin/gcc CXX=/opt/rh/devtoolset-3/root/usr/bin/g++ npm install zmq
