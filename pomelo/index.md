@@ -5,9 +5,6 @@
 Pomelo交流群 @老顽童-NextZeus
 微信群 BJ NodeJS Club @老顽童
 
-## 欢迎加入Pomelo小密圈
-![Pomelo小密圈](http://img.hb.aicdn.com/f4a8651902371dcab641d281ee5c383112f2349b156bb-GH9HMT_fw658)
-
 ### 适用场景
 * 多人游戏：手游，社交游戏，网页游戏，MMORPG ,ARPG
 * 实时应用：聊天，消息推送，等等
