@@ -24,8 +24,12 @@ Node: /pomelo is created successfully.
 Node: /pomelo/master is created successfully.
 
 
-game-server $ pomelo start
+➜  game-server git:(master) ✗  pomelo start [ 启动game-server ]
 
-game-server $ pomelo masterha
+➜  game-server git:(master) ✗  pomelo masterha [启动备用master ]
+
+
 
 ```
+
+over
