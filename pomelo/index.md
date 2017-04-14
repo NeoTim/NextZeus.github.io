@@ -317,7 +317,6 @@ var app = pomelo.createApp({
 0. [installPomeloDep](installPomeloDep/)
 1. [connector](connector/)
 2. [router](router/)
-3. [distributedDeployment](distributedDeployment/)
 4. [pomelo-cli](pomelo-cli/)
 5. [pomelo-rpc-zeromq](pomelo-rpc-zeromq/)
 6. [component](component/)
@@ -335,4 +334,3 @@ var app = pomelo.createApp({
 18. [globalFilter](globalFilter/)
 19. [onlineUser在线玩家信息](onlineUser/)
 20. [filters](filters/)
-21. [pomelo master high availability](highavailability)
