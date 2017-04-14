@@ -8,3 +8,24 @@ High availability is a characteristic of a system, which aims to ensure an agree
 
 ## pomelo master 高可用
 
+```
+下载zookeeper
+解压到/Users/xxx目录下
+配置conf/zoo.cfg, [可直接改名zoo_sample.cfg为zoo.cfg 临时]
+
+bin/zkServer.sh start ［启动zk服务］
+
+切换到lordofpomelo 
+执行 node scripts/createZKMasterhaNode.js 创建/pomelo/master Node[节点]
+
+➜  game-server git:(master) ✗ node scripts/createZKMasterhaNode.js 
+Connected to the server.
+Node: /pomelo is created successfully.
+Node: /pomelo/master is created successfully.
+
+
+game-server $ pomelo start
+
+game-server $ pomelo masterha
+
+```
