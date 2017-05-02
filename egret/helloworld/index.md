@@ -328,3 +328,74 @@ mySprite.mask = maskSprite;
 var isHit:boolean = shp.hitTestPoint(10,10,true);
 
 ### TextField
+
+```
+var lebel:egret.TextField = new egret.TextField();
+label.width = 80;
+label.height = 80;
+label.textColor = 0xff0000;
+label.size = 16;
+label.fontFamily = "KaiTi";
+label.text = "";
+<!--布局-->
+label.textAlign = egret.HorizontalAlign.RIGHT;
+label.textAlign = egret.HorizontalAlign.CENTER;
+
+label.verticalAlign = egret.VerticalAlign.BOTTOM;
+label.verticalAlign = egret.VerticalAlign.MIDDLE;
+
+//设置描边属性
+label.strokeColor = 0x0000ff;
+label.stroke = 2;
+//设置粗体与斜体
+label.bold = true;
+label.italic = true;
+
+
+var tx:egret.TextField = new egret.TextField;
+// 注意_container是事先建立好的一个显示容器，即 egret.DisplayObjectContainer，并且已经添加到显示列表中
+tx.width = this._container.stage.stageWidth - 20;
+tx.textFlow = (new egret.HtmlTextParser).parser(
+    '没有任何格式初始文本，' +
+    '<font color="#0000ff" size="30" fontFamily="Verdana">Verdana blue large</font>' +
+    '<font color="#ff7f50" size="10">珊瑚色<b>局部加粗</b>小字体</font>' +
+    '<i>斜体</i>'
+);
+tx.x = 10;
+tx.y = 90;
+this._container.addChild( tx );
+
+var tx:egret.TextField = new egret.TextField;
+tx.width = 400;
+tx.x = 10;
+tx.y = 10;
+tx.textColor = 0;
+tx.size = 20;
+tx.fontFamily = "微软雅黑";
+tx.textAlign = egret.HorizontalAlign.CENTER;
+tx.textFlow = <Array<egret.ITextElement>>[
+    {text: "妈妈再也不用担心我在", style: {"size": 12}}
+    , {text: "Egret", style: {"textColor": 0x336699, "size": 60, "strokeColor": 0x6699cc, "stroke": 2}}
+    , {text: "里说一句话不能包含各种", style: {"fontFamily": "楷体"}}
+    , {text: "五", style: {"textColor": 0xff0000}}
+    , {text: "彩", style: {"textColor": 0x00ff00}}
+    , {text: "缤", style: {"textColor": 0xf000f0}}
+    , {text: "纷", style: {"textColor": 0x00ffff}}
+    , {text: "、\n"}
+    , {text: "大", style: {"size": 36}}
+    , {text: "小", style: {"size": 6}}
+    , {text: "不", style: {"size": 16}}
+    , {text: "一", style: {"size": 24}}
+    , {text: "、"}
+    , {text: "格", style: {"italic": true, "textColor": 0x00ff00}}
+    , {text: "式", style: {"size": 16, "textColor": 0xf000f0}}
+    , {text: "各", style: {"italic": true, "textColor": 0xf06f00}}
+    , {text: "样", style: {"fontFamily": "楷体"}}
+    , {text: ""}
+    , {text: "的文字了！"}
+];
+this.addChild( tx );
+
+
+```
+
