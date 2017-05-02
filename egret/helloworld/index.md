@@ -234,3 +234,97 @@ private onReceiveMessage(e:egret.Event):void{
 }
 
 ```
+
+### 文件依赖 
+```
+//a.ts
+class testA{
+    public static arr:Array<any> = ['a','b','c'];
+}
+
+//b.ts
+////<reference path="testA.ts" />
+class testB{
+    public static str:String = testA.arr.join("");
+}
+
+//c.ts
+class testC{
+    //error
+    public static test:any = egret.getDefinitionByName(testB.str);
+}
+
+
+
+```
+
+那么当我们添加了 TestB.testBstr 的调用之后浏览器发现 TestA 类并没有被定义，进而导致 testBStr 这个属性页找不到了。当我们编译之后发生了什么呢，检查一下生成的 index.html 文件会发现 TestB.js 是在 TestCall.js 之前加载的，而 TestA.js 是在最后加载的。当 TestB.js 调用 TestA.js 中的文件的内容时浏览器将会报错
+
+解决方法
+
+```
+
+这种情况解决方法也很简单，就是告诉编译器我们的类的依赖关系。在 TypeScript 中，使用<reference>标签来表示引用关系。在 reference 标签中可以标记依赖文件的相对路径。所以只需要在 TestB 类之前加入如下注释即可：
+
+///<reference path="TestA.ts" />
+class TestB{
+    public static testBStr:string = TestA.arr.join("");
+}
+上面这种情况一般发生在静态成员的引用上，还有其他情况在极小概率下可能导致该现象，如果遇到可以加入依赖关系标签来告诉编译器正确的加载方式
+
+```
+
+### 核心显示类
+
+* DisplayObject ［显示对象基类 所有显示对象均继承自此类]
+    * DisplayObjectContainer ［显示对象容器接口，所有显示对象容器均实现此接口]
+        * Sprite  [带有矢量绘制功能的显示容器]
+        * Stage  [舞台类]
+    * Bitmap [位图 显示图片]
+    * Shape  [矢量图 绘制矢量图形]
+    * TextField  [文本类]
+    * BitmapText [位图文本类]
+
+舞台坐标原点在左上角(0,0) 横轴X 纵轴Y
+
+### 属性
+scaleX, scaleY 缩放
+alpha 透明度
+rotation 旋转
+width,height
+skewX,skewY 斜切
+visible 
+x,y
+anchorOffsetX,anchorOffsetY 绝对锚点
+
+
+使用 DisplayObject 类的 localToGlobal() 方法将本地坐标转换为舞台坐标。
+
+两个方块的深度互换。
+sprcon.swapChildren( spr1, spr2 );
+第二种方法进行两个方块深度互换。
+sprcon.swapChildrenAt( 0, 1 );
+
+第三种 重新设置自对象深度
+setChildIndex(spr1,1)
+setChildIndex(spr2,0)
+
+<!--获取自对象-->
+spron.getChildAt(1);
+比
+spron.getChildByName("sprite2");
+快速很多
+
+### 遮罩
+
+<!--矩形-->
+mask属性
+shp.mask = new egret.Rectangle(20,20,30,50);
+
+<!--对象遮罩-->
+mySprite.mask = maskSprite;
+
+<!--碰撞检测 三个参数 精确碰撞-->
+var isHit:boolean = shp.hitTestPoint(10,10,true);
+
+### TextField
