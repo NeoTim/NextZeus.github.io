@@ -22,7 +22,7 @@ High availability is a characteristic of a system, which aims to ensure an agree
 * 修改game-server app.js配置插件
 
 - app.js配置
-- 
+
 ```
 var masterhaPlugin = require('pomelo-masterha-plugin');
 
