@@ -44,8 +44,10 @@ StrictHostKeyChecking no
 ## 实战经验
 
 ### 说明
-master-server, gate-server ,connector-server 部署服务器A IP:xx.xx.xx.xx  公网IP:yy.yy.yy.yy
-data-server, activity-server 部署在服务器B IP: zz.zz.zz.zz
+
+> master-server, gate-server ,connector-server 部署服务器A IP:xx.xx.xx.xx  公网IP:yy.yy.yy.yy
+
+> data-server, activity-server 部署在服务器B IP: zz.zz.zz.zz
 
 ### 配置如下
 
