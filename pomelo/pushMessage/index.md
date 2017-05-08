@@ -1,9 +1,9 @@
 # pushMessage & pushMessageByUids & broadcast
 
-## pushMessage
+## pushMessage 
+以channel为单位推送消息, 每个channel可比作一个房间。
 
 ```
-
 /**
  * Push message to all the members in the channel
  *
@@ -21,8 +21,14 @@ var params = {
 };
 
 channel.pushMessage(params);
+
 ```
 ## pushMessageByUids
+
+该方法只在channelService中定义, channel不可使用该方法。 
+
+推送消息给指定的用户集合uids:[{uid:1001,sid:'connector-server-1'},{uid:1002,sid:'connector-server-2'}].
+
 ```
 
 /**
@@ -45,6 +51,8 @@ channelService.pushMessageByUids(route, msg, uids, opt, callback);
 
 
 ## broadcast
+
+广播消息。 推送给所有用户
 
 ```
 /**

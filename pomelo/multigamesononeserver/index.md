@@ -6,3 +6,10 @@
 
 ## 解决方法
 1. 修改master.json和servers.json配置中的id,port 保证配置的server唯一。
+
+## 了解
+
+在看源码的过程中，发现最终推送消息的地方: zmq.socket.send
+zmq创建的socket.send方法已经执行了， 但是执行失败了 也没有抛出任何的错误。
+
+
