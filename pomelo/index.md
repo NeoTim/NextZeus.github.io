@@ -288,6 +288,7 @@ channel分两类： 具有channel_name和匿名channel, 区别在于匿名channe
 
 1. max-connections(optional) 前端server可以hold的最大连接数
 2. cpu 设置服务器的cpu相关性的过程,只适用于unix platform
+3. 如果是同一台服务器部署多个pomelo创建的游戏实例在运行，要注意serverId区别开，不能写成一样的serverId。
 
 ### start game-server with optional env
 
