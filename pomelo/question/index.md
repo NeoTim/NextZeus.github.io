@@ -3,7 +3,7 @@
 1. 如何获取在线玩家的信息
 2. 如何推送消息
 3. 同一台服务器部署多款pomelo开发的游戏，服务器推送消息出现问题
-4. 服务器连接gate后返回connector的信息，收不到客户端连接connector的请求
+4. 客户端连接connector服务器失败
 
 #### 解答
 1. 问题1 请看[onlineUser](../onlineUser/)
