@@ -113,5 +113,14 @@ CentOS 系统自带的 gcc 或者 g++ 的版本是：g++ (GCC) 4.4.6. GCC 版本
 ```
 
 
+
+## zmq module
+
+sudo npmi zmq -g
+
+npm link zmq
+
+
+
 #### 参考资料
 [centos-upgrade-gcc-g++](http://www.wengweitao.com/centos-sheng-ji-gcc-he-g-de-fang-fa.html)
