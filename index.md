@@ -12,7 +12,7 @@
 * 熟悉游戏开发框架: Pomelo ,Express, Koa 
 * 熟悉数据库：MySQL, Redis, Mongodb
 * 可以独立部署服务器，了解Linux操作系统与基本shell命令
-* 熟练使用pm2 部署管理服务器群
+* 熟练使用pm2,forever 部署管理服务器群
 * 使用过Python+BeautifulSoup爬取网络主播信息
 * 参与NodeParty[北京]，分享过Pomelo服务器框架
 * 参与过Pomelo中的开源项目以及其他开源项目

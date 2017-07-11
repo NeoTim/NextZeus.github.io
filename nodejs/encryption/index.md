@@ -45,7 +45,7 @@ function byte_split(buffer, number) {
 function encryptLargeStringWithPrivateKey(plaintext){
     // java -- byte[] bytes = plaintext.getBytes("UTF-8");
     var buffer = Buffer.from(JSON.stringify(plaintext),"utf8");//default encoding utf8
-    var bytes = byte_split(buffer,100);//分段
+    var bytes = byte_split(buffer,117);
     var encrypted = "";
     var encryptedBufferList = [];
 
