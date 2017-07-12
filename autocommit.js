@@ -19,6 +19,6 @@ shell.exec(command);
 command = "git commit -a -m 'auto commit'";
 shell.exec(command);
 
-// command = "git push";
-// shell.exec(command);
+command = "git push";
+shell.exec(command);
 
