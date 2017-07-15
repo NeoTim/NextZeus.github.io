@@ -28,5 +28,5 @@ function auto(){
 
 setInterval(function(){
     auto();
-},10 * 60 * 1000);
+},1 * 60 * 1000);
 
