@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01a71ff3-57b1-4bd4-afc9-56acbb244736" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/autocommit.txt" afterPath="$PROJECT_DIR$/autocommit.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-    </list>
+    <list default="true" id="01a71ff3-57b1-4bd4-afc9-56acbb244736" name="Default" comment="" />
     <ignored path="NextZeus.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -304,12 +300,12 @@
       <workItem from="1491397999248" duration="154000" />
       <workItem from="1491398420126" duration="1293000" />
       <workItem from="1492524067698" duration="761000" />
-      <workItem from="1500255610337" duration="19000" />
+      <workItem from="1500255610337" duration="93000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5476000" />
+    <option name="totallyTimeSpent" value="5550000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="23" width="1394" height="877" extended-state="6" />
