@@ -4,5 +4,8 @@
   "description": "",
   "main": "index.js",
   "author": "nextzeus",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.7.8"
+  }
 }
