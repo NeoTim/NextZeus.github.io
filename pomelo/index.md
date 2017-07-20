@@ -307,8 +307,11 @@ var app = pomelo.createApp({
 });
 
 >$ pomelo start -e production
->$ 
+
 ```
+
+### [对Pomelo服务器框架的重新认识](comprehendPomelo/)
+
 
 ### [常见问题答疑](question/)
 ### 早期写的简书文章
