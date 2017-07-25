@@ -25,8 +25,11 @@ function auto(){
     shell.exec(command);
     console.log('done!!!');
 }
-
+var count = 1;
 setInterval(function(){
-    auto();
+    count ++;
+    if(count <= 10){
+    	auto();
+    }
 },1 * 60 * 1000);
 
