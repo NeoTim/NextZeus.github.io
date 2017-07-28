@@ -29,6 +29,7 @@ var count = 1;
 setInterval(function(){
     count ++;
     if(count <= 10){
+	console.log('times-->>',count);
     	auto();
     }
 },1 * 60 * 1000);
