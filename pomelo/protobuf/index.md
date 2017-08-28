@@ -188,7 +188,6 @@ Protobuf.init = function(opts){
 
 客户端需要单独写protobuf encode decode
 
-public/lib/build/build.js
 
 ```
 
